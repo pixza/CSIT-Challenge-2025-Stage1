@@ -1,0 +1,42 @@
+name: LightShow CI
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+    
+    - name: Run tests
+      run: |
+        python -m pytest tests/ -v
+    
+    - name: Check config validity
+      run: |
+        python -c "import json; json.load(open('config/show_config.json'))"
+    
+    - name: Safety check
+      run: |
+        python -c "
+        import json
+        config = json.load(open('config/show_config.json'))
+        assert config['safety_limits']['max_fountain_height'] <= 25, 'Fountain height exceeds safety limits'
+        assert config['safety_limits']['max_light_intensity'] <= 100, 'Light intensity exceeds safety limits'
+        print('✅ Safety checks passed')
+        "

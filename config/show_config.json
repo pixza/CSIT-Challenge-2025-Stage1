@@ -1,0 +1,14 @@
+{
+    "show_name": "RedDot Spectacular 2025",
+    "venue": "Marina Bay",
+    "max_lights": 50,
+    "max_fountains": 10,
+    "safety_limits": {
+        "max_light_intensity": 100,
+        "max_fountain_height": 20
+    },
+    "timing": {
+        "sequence_buffer": 0.5,
+        "emergency_stop_delay": 2.0
+    }
+}
