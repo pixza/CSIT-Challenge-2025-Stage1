@@ -7,6 +7,7 @@ Main controller for synchronized light and fountain shows
 import json
 import time
 from typing import Dict, List
+from sequences import SEQUENCES
 
 class LightShowController:
     def __init__(self, config_file: str):
@@ -58,24 +59,28 @@ class LightShowController:
     
     def stop_show(self):
         """Stop the show"""
-        self.is_running = False
+        if self.is_running:
+            print("Stopping the show...")
+            self.is_running = False
         print("Show stopped")
 
 if __name__ == "__main__":
     controller = LightShowController('config/show_config.json')
     
     # Sample sequence
-    sample_sequence = {
-        'name': 'Grand Finale',
+    first_sequence = {
+        'name': 'Opening Ceremony',
         'duration': 5,
         'lights': [
-            {'id': 1, 'color': 'red', 'intensity': 100},
-            {'id': 2, 'color': 'blue', 'intensity': 80}
+            {'id': 1, 'color': 'white', 'intensity': 100},
+            {'id': 2, 'color': 'red', 'intensity': 80}
         ],
         'fountains': [
-            {'id': 1, 'height': 15}
+            {'id': 1, 'height': 25}
         ]
     }
     
-    controller.add_sequence(sample_sequence)
+    controller.add_sequence(first_sequence)
+    for lightshow in SEQUENCES:
+        controller.add_sequence(SEQUENCES[lightshow])
     controller.start_show()

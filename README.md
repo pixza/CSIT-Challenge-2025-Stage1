@@ -22,6 +22,7 @@ This repository contains the control software for RedDot Lightshow's synchronize
 - Emergency stop available at any time
 
 ## Hint
-[] Fix the rogue commits
-[] Untangle the merge conflicts
-[] Recover the build pipeline to find your flag
+[] Revert commits that do not belong
+[] Resolve the merge conflict on *development* branch by selecting the correct pieces of code
+[] Ensure full pipeline success to retrieve your flag
+[] Bonus objective : cherry pick the right commits and clear the master branch and commit history by merging development branch into master
