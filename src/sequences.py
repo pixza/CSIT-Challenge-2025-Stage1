@@ -10,9 +10,9 @@ SEQUENCES = {
             {"id": i, "color": ["red", "orange", "yellow", "green", "blue", "purple"][i % 6], "intensity": 90}
             for i in range(1, 13)
         ],
-        "fountains": [
-            {"id": 1, "height": 12},
-            {"id": 2, "height": 15}
+        "fireworks": [
+            {"id": 1, "height": 12, "color": "red"},
+            {"id": 2, "height": 15, "color": "blue"}
         ]
     },
     "patriotic_finale": {
@@ -23,8 +23,8 @@ SEQUENCES = {
             {"id": 2, "color": "white", "intensity": 100},
             {"id": 3, "color": "blue", "intensity": 100}
         ],
-        "fountains": [
-            {"id": 1, "height": 20}
+        "fireworks": [
+            {"id": 1, "height": 20, "color": "blue"}
         ]
     }
 }
