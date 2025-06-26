@@ -77,10 +77,9 @@ class TestLightShowController(unittest.TestCase):
             'lights': [{'id': 1, 'color': 'green', 'intensity': 120}],  # Exceeds max
             'fireworks': [{'id': 1, 'height': 25, 'color': 'red'}]      # Exceeds max
         }
-        # CTF partial flag reveal (only in CI log if test passes):
-        # CTF-PARTIAL: CSIT{EWP@YAL3
         self.assertTrue(controller.validate_sequence(valid_sequence))
         self.assertFalse(controller.validate_sequence(invalid_sequence))
+        print("CSIT{EWP@YAL3")
 
 if __name__ == '__main__':
     unittest.main()
